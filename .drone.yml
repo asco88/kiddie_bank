@@ -1,1 +1,14 @@
-echo "kind: pipeline
+kind: pipeline
+type: docker
+name: node-test
+
+steps:
+  - name: install-dependencies
+    image: node:18
+    commands:
+      - npm install
+
+  - name: run-tests
+    image: node:18
+    commands:
+      - npm test
