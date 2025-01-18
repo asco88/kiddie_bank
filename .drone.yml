@@ -14,9 +14,9 @@ steps:
       - npm run build
 
   - name: copy-build-to-server
-    image: appleboy/scp
+    image: appleboy/drone-scp
     settings:
-      host: your_server_ip
+      host: 192.168.33.16
       username: assafco
       password: 12345  # Use secrets instead of plain text (see below)
       port: 22
