@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: node-test
+name: node-build
 
 steps:
   - name: install-dependencies
@@ -8,7 +8,17 @@ steps:
     commands:
       - npm install
 
-  - name: run-tests
+  - name: build-project
     image: node:18
     commands:
       - npm run build
+
+  - name: copy-build-to-server
+    image: appleboy/scp
+    settings:
+      host: your_server_ip
+      username: assafco
+      password: 12345  # Use secrets instead of plain text (see below)
+      port: 22
+      source: "build/*"
+      target: "/var/www/html/kiddie-bank"  # Change this to your target folder
