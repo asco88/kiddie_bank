@@ -9,7 +9,7 @@ import Login from './components/Login';
 
 const App = () => {
     return (
-        <Router>
+        <Router basename='kiddie-bank'>
             <div className="App">
                 <Header />
                 <div className="container">
