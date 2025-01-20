@@ -2,10 +2,6 @@ kind: pipeline
 type: docker
 name: node-build
 
-trigger:
-  event:
-    - push  # Runs on any commit to any branch
-
 steps:
   - name: install-dependencies
     image: node:18
